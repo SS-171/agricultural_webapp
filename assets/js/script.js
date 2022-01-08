@@ -10,7 +10,8 @@ const dataListBtn = $('.data-menu__icon');
 const imageLinks = $$('.img-show');
 const overlayImg = $('.overlay__img');
 const overlay = $('.overlay');
-const diseaseItems = $$(".graph__item a")
+const diseaseMenuItems = $$(".graph__item a");
+const dataDiseaseDetail = $$('.data-disease__detail');
 // for data page
 function toggleDataMenu(){
     dataList.classList.toggle("data-menu--show");
@@ -47,6 +48,7 @@ function disappearContent(){
         item.classList.remove('content--show')
     })
 }
+
 contentItems.forEach(function(each){
     each.addEventListener('click', function(){
         disappearContent()
@@ -56,8 +58,9 @@ contentItems.forEach(function(each){
     })
 })
 
-diseaseItems.forEach(each=>{
-    each.onclick = ()=>{
+// show disease in from menu list
+diseaseMenuItems.forEach(each=>{
+    each.onclick = ()=>{ 
         disappearContent();
         $(".content #blog").classList.add('content--show')
     }
@@ -88,3 +91,12 @@ const blogSwiper = new Swiper('.blog__swiper', {
     },
 
 });
+
+
+// FOR DATA PAGE
+dataDiseaseDetail.forEach(each=>{
+    each.onclick = ()=>{
+        disappearContent();
+        $(".content #blog").classList.add('content--show')
+    }
+})
